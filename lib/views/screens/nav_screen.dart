@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:product_gallery/views/screens/explore_screen.dart';
 
 class NavScreen extends StatefulWidget {
   const NavScreen({Key? key}) : super(key: key);
@@ -10,21 +11,18 @@ class NavScreen extends StatefulWidget {
 class _NavScreenState extends State<NavScreen> {
   int _selectedIndex = 1;
 
-  static const List<Widget> _pages = <Widget>[
-    Center(
+  static final List<Widget> _pages = <Widget>[
+    const Center(
         child: Text('Home',
             style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
-    Center(
-      child: Text('Explore',
-          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    ),
-    Center(
+    ExploreScreen(),
+    const Center(
         child: Text('Add',
             style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
-    Center(
+    const Center(
         child: Text('Inbox',
             style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
-    Center(
+    const Center(
         child: Text('Shop',
             style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
   ];
@@ -44,7 +42,8 @@ class _NavScreenState extends State<NavScreen> {
         selectedItemColor: Colors.red,
         type: BottomNavigationBarType.fixed,
         items: [
-          const BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined), label: 'Home'),
           const BottomNavigationBarItem(
               icon: Icon(Icons.explore_outlined), label: 'Explore'),
           BottomNavigationBarItem(
@@ -61,7 +60,8 @@ class _NavScreenState extends State<NavScreen> {
           ),
           const BottomNavigationBarItem(
               icon: Icon(Icons.forward_to_inbox), label: 'Inbox'),
-          const BottomNavigationBarItem(icon: Icon(Icons.shop_outlined), label: 'Shop'),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.shop_outlined), label: 'Shop'),
         ],
       ),
     );
