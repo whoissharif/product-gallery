@@ -10,27 +10,35 @@ class ExploreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Obx(
         () {
           if (productController.isLoading.value) {
             return const Center(child: CircularProgressIndicator());
           } else {
             List<Product> products = productController.productModel.products;
-            return AlignedGridView.count(
-              crossAxisCount: 2,
-              itemCount: products.length,
-              crossAxisSpacing: 5,
-              mainAxisSpacing: 5,
-              itemBuilder: (context, index) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+            return GridView.custom(
+              gridDelegate: SliverQuiltedGridDelegate(
+                crossAxisCount: 3,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+                repeatPattern: QuiltedGridRepeatPattern.inverted,
+                pattern: [
+                  const QuiltedGridTile(2, 2),
+                  const QuiltedGridTile(1, 1),
+                  const QuiltedGridTile(1, 1),
+                ],
+              ),
+              childrenDelegate: SliverChildBuilderDelegate(
+                (context, index) => ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
                   child: Image.network(
                     products[index].thumbnail,
                     fit: BoxFit.cover,
                   ),
-                );
-              },
+                ),
+                childCount: products.length,
+              ),
             );
           }
         },
