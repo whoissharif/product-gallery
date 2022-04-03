@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:product_gallery/controllers/product_controller.dart';
 import 'package:product_gallery/models/product_model.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../widgets/product_dialog.dart';
+import '../widgets/product_search_bar.dart';
 
 class ExploreScreen extends StatelessWidget {
   ExploreScreen({Key? key}) : super(key: key);
@@ -26,30 +28,7 @@ class ExploreScreen extends StatelessWidget {
 
               return Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 50, bottom: 10),
-                    child: TextField(
-                      onChanged: (value) =>
-                          productController.searchProduct(value),
-                      style: const TextStyle(fontSize: 15),
-                      decoration: InputDecoration(
-                        hintText: 'Search in Swepexyz..',
-                        hintStyle: const TextStyle(
-                            color: Color.fromARGB(255, 121, 120, 120)),
-                        contentPadding: const EdgeInsets.all(10),
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: const BorderSide(
-                            width: 0,
-                            style: BorderStyle.none,
-                          ),
-                        ),
-                        fillColor: const Color.fromARGB(255, 218, 223, 228),
-                        prefixIcon: const Icon(Icons.search),
-                      ),
-                    ),
-                  ),
+                  ProductSearchBar(productController: productController),
                   Expanded(
                     child: GridView.custom(
                       shrinkWrap: true,
@@ -76,9 +55,15 @@ class ExploreScreen extends StatelessWidget {
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
-                            child: Image.network(
-                              products[index].thumbnail,
+                            child: CachedNetworkImage(
+                              imageUrl: products[index].thumbnail,
                               fit: BoxFit.cover,
+                              placeholder: (context, _) => Image.asset(
+                                "assets/images/placeholder.jpg",
+                                fit: BoxFit.cover,
+                                gaplessPlayback: true,
+                              ),
+                              placeholderFadeInDuration: Duration.zero,
                             ),
                           ),
                         ),

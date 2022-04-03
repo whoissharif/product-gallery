@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../models/product_model.dart';
 
@@ -29,11 +30,17 @@ class ProductDialog extends StatelessWidget {
               ListTile(
                 leading: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
-                    product.thumbnail,
-                    width: 40,
-                    height: 40,
+                  child: CachedNetworkImage(
+                    imageUrl: product.thumbnail,
+                    height: 45,
+                    width: 45,
                     fit: BoxFit.cover,
+                    placeholder: (context, _) => Image.asset(
+                      "assets/images/placeholder.jpg",
+                      fit: BoxFit.cover,
+                      gaplessPlayback: true,
+                    ),
+                    placeholderFadeInDuration: Duration.zero,
                   ),
                 ),
                 title: Text(product.title),
@@ -71,9 +78,15 @@ class ProductDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: AspectRatio(
                     aspectRatio: 1,
-                    child: Image.network(
-                      product.thumbnail,
+                    child: CachedNetworkImage(
+                      imageUrl: product.thumbnail,
                       fit: BoxFit.cover,
+                      placeholder: (context, _) => Image.asset(
+                        "assets/images/placeholder.jpg",
+                        fit: BoxFit.cover,
+                        gaplessPlayback: true,
+                      ),
+                      placeholderFadeInDuration: Duration.zero,
                     ),
                   ),
                 ),
