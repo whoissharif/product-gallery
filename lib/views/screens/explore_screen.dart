@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:product_gallery/controllers/product_controller.dart';
 import 'package:product_gallery/models/product_model.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import '../widgets/product_dialog.dart';
 
 class ExploreScreen extends StatelessWidget {
   ExploreScreen({Key? key}) : super(key: key);
@@ -30,11 +31,21 @@ class ExploreScreen extends StatelessWidget {
                 ],
               ),
               childrenDelegate: SliverChildBuilderDelegate(
-                (context, index) => ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    products[index].thumbnail,
-                    fit: BoxFit.cover,
+                (context, index) => InkWell(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) {
+                        return ProductDialog(product: products[index]);
+                      },
+                    );
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.network(
+                      products[index].thumbnail,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 childCount: products.length,
