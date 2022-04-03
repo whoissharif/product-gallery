@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:product_gallery/views/screens/product_detail.dart';
 import '../../models/product_model.dart';
 
 class ProductDialog extends StatelessWidget {
@@ -91,19 +92,27 @@ class ProductDialog extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                width: double.infinity,
-                margin:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 236, 236, 236),
-                    borderRadius: BorderRadius.circular(12)),
-                child: const Center(
-                  child: Text(
-                    'View Post',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                    return ProductDetail(product: product);
+                  }));
+                },
+                child: Container(
+                  width: double.infinity,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 236, 236, 236),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: const Center(
+                    child: Text(
+                      'View Post',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),
