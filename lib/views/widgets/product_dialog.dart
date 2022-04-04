@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:product_gallery/constants/string_constants.dart';
 import 'package:product_gallery/views/screens/product_detail.dart';
 import '../../models/product_model.dart';
 
@@ -64,7 +65,7 @@ class ProductDialog extends StatelessWidget {
                         width: 8,
                       ),
                       Text(
-                        'Follow',
+                        StringConstants.follow,
                         style: TextStyle(
                             color: Colors.red, fontWeight: FontWeight.bold),
                       ),
@@ -110,7 +111,7 @@ class ProductDialog extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12)),
                   child: const Center(
                     child: Text(
-                      'View Post',
+                      StringConstants.viewPost,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:product_gallery/constants/string_constants.dart';
 import 'package:product_gallery/constants/style_constants.dart';
 import 'package:product_gallery/models/product_model.dart';
 import 'package:product_gallery/views/screens/product_detail.dart';
@@ -130,7 +131,7 @@ class _ProductItemState extends State<ProductItem> {
                         ),
                         child: Center(
                           child: Text(
-                            'Add To Cart',
+                            StringConstants.addToCart,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -153,7 +154,7 @@ class _ProductItemState extends State<ProductItem> {
                         const EdgeInsets.symmetric(vertical: 1, horizontal: 3),
                     child: const FittedBox(
                       child: Text(
-                        'In stock',
+                        StringConstants.inStock,
                         style: TextStyle(color: Colors.white, fontSize: 9),
                       ),
                     ),

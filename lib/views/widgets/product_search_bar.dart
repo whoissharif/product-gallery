@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:product_gallery/constants/string_constants.dart';
 
 import '../../controllers/product_controller.dart';
 
@@ -18,7 +19,7 @@ class ProductSearchBar extends StatelessWidget {
         onChanged: (value) => productController.searchProduct(value),
         style: const TextStyle(fontSize: 15),
         decoration: InputDecoration(
-          hintText: 'Search in Swepexyz..',
+          hintText: StringConstants.searchHint,
           hintStyle: const TextStyle(color: Color.fromARGB(255, 121, 120, 120)),
           contentPadding: const EdgeInsets.all(10),
           filled: true,

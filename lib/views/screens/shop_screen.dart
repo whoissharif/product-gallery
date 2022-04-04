@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:product_gallery/constants/string_constants.dart';
 import 'package:product_gallery/views/widgets/product_item.dart';
 
 import '../../controllers/product_controller.dart';
@@ -13,7 +14,7 @@ class ShopScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Shop',
+          StringConstants.shopString,
           style: TextStyle(color: Colors.black),
         ),
         elevation: 0,
@@ -25,11 +26,12 @@ class ShopScreen extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           } else {
             return ListView.builder(
-                itemCount: productController.productModel!.products.length,
-                itemBuilder: (context, index) {
-                  return ProductItem(
-                      product: productController.productModel!.products[index]);
-                });
+              itemCount: productController.productModel!.products.length,
+              itemBuilder: (context, index) {
+                return ProductItem(
+                    product: productController.productModel!.products[index]);
+              },
+            );
           }
         },
       ),

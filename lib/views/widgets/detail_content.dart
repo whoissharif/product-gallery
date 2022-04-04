@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:product_gallery/constants/string_constants.dart';
 
 import '../../constants/style_constants.dart';
 import '../../models/product_model.dart';
@@ -99,7 +100,7 @@ class DetailContent extends StatelessWidget {
                       const SizedBox(
                         width: 8,
                       ),
-                      const Text('In Stock'),
+                      const Text(StringConstants.inStock),
                       const Spacer(),
                       Text(
                         product.stock.toString(),

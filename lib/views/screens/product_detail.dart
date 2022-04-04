@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:product_gallery/constants/string_constants.dart';
 import 'package:product_gallery/models/product_model.dart';
 import '../widgets/detail_content.dart';
 import '../widgets/product_detail_bottom_sheet.dart';
@@ -25,7 +26,7 @@ class ProductDetail extends StatelessWidget {
             )),
         backgroundColor: Colors.white,
         title: const Text(
-          'Detail',
+          StringConstants.productDetailString,
           style: TextStyle(color: Colors.black),
         ),
       ),

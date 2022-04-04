@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:product_gallery/constants/string_constants.dart';
 
 class ProductDetailBottomSheet extends StatelessWidget {
   const ProductDetailBottomSheet({
@@ -35,7 +36,7 @@ class ProductDetailBottomSheet extends StatelessWidget {
               right: 20,
             ),
             child: const Text(
-              'Add to Cart',
+              StringConstants.addToCart,
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.white,

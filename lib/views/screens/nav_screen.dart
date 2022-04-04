@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:product_gallery/constants/string_constants.dart';
 import 'package:product_gallery/views/screens/explore_screen.dart';
 import 'package:product_gallery/views/screens/shop_screen.dart';
 
@@ -14,14 +15,14 @@ class _NavScreenState extends State<NavScreen> {
 
   static final List<Widget> _pages = <Widget>[
     const Center(
-        child: Text('Home',
+        child: Text(StringConstants.homeString,
             style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
     ExploreScreen(),
     const Center(
-        child: Text('Add',
+        child: Text(StringConstants.addString,
             style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
     const Center(
-        child: Text('Inbox',
+        child: Text(StringConstants.inboxString,
             style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
     ShopScreen(),
   ];
@@ -42,9 +43,11 @@ class _NavScreenState extends State<NavScreen> {
         type: BottomNavigationBarType.fixed,
         items: [
           const BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home'),
+              icon: Icon(Icons.home_outlined),
+              label: StringConstants.homeString),
           const BottomNavigationBarItem(
-              icon: Icon(Icons.explore_outlined), label: 'Explore'),
+              icon: Icon(Icons.explore_outlined),
+              label: StringConstants.exploreString),
           BottomNavigationBarItem(
             icon: Align(
               alignment: Alignment.bottomCenter,
@@ -58,9 +61,11 @@ class _NavScreenState extends State<NavScreen> {
             label: '',
           ),
           const BottomNavigationBarItem(
-              icon: Icon(Icons.forward_to_inbox), label: 'Inbox'),
+              icon: Icon(Icons.forward_to_inbox),
+              label: StringConstants.inboxString),
           const BottomNavigationBarItem(
-              icon: Icon(Icons.shop_outlined), label: 'Shop'),
+              icon: Icon(Icons.shop_outlined),
+              label: StringConstants.shopString),
         ],
       ),
     );
