@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:product_gallery/models/product_model.dart';
 
+import '../widgets/product_slider.dart';
+
 class ProductDetail extends StatelessWidget {
   const ProductDetail({Key? key, required this.product}) : super(key: key);
 
@@ -9,7 +11,14 @@ class ProductDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(product.title)),
+      appBar: AppBar(
+        title: Text(product.title),
+      ),
+      body: Column(
+        children: [
+          ProductSlider(product: product),
+        ],
+      ),
     );
   }
 }
