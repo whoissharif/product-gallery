@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:product_gallery/models/product_model.dart';
-
+import '../widgets/detail_content.dart';
 import '../widgets/product_slider.dart';
 
 class ProductDetail extends StatelessWidget {
@@ -12,11 +12,26 @@ class ProductDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(product.title),
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            )),
+        backgroundColor: Colors.white,
+        title: const Text(
+          'Detail',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Column(
         children: [
           ProductSlider(product: product),
+          DetailContent(product: product),
         ],
       ),
     );
