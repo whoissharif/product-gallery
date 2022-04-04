@@ -11,7 +11,7 @@ class NavScreen extends StatefulWidget {
 }
 
 class _NavScreenState extends State<NavScreen> {
-  int _selectedIndex = 4;
+  int _selectedIndex = 1;
 
   static final List<Widget> _pages = <Widget>[
     const Center(

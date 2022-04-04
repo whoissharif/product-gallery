@@ -5,25 +5,15 @@ import 'package:product_gallery/constants/style_constants.dart';
 import 'package:product_gallery/models/product_model.dart';
 import 'package:product_gallery/views/screens/product_detail.dart';
 
-class ProductItem extends StatefulWidget {
+class ProductItem extends StatelessWidget {
   final Product product;
 
   const ProductItem({
     Key? key,
     required this.product,
   }) : super(key: key);
-  @override
-  _ProductItemState createState() => _ProductItemState();
-}
 
-class _ProductItemState extends State<ProductItem> {
   @override
-  void setState(fn) {
-    if (mounted) {
-      super.setState(fn);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final double deviceHeight = MediaQuery.of(context).size.height;
@@ -45,7 +35,7 @@ class _ProductItemState extends State<ProductItem> {
                         await Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (c) {
-                              return ProductDetail(product: widget.product);
+                              return ProductDetail(product: product);
                             },
                           ),
                         );
@@ -61,7 +51,7 @@ class _ProductItemState extends State<ProductItem> {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: CachedNetworkImage(
-                                      imageUrl: widget.product.thumbnail,
+                                      imageUrl: product.thumbnail,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -81,7 +71,7 @@ class _ProductItemState extends State<ProductItem> {
                                 SizedBox(
                                   width: deviceWidth * .39,
                                   child: Text(
-                                    widget.product.title,
+                                    product.title,
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 2,
                                     style: TextStyle(
@@ -94,7 +84,7 @@ class _ProductItemState extends State<ProductItem> {
                                   height: 8,
                                 ),
                                 Text(
-                                  widget.product.brand,
+                                  product.brand,
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                   style: const TextStyle(
@@ -106,7 +96,7 @@ class _ProductItemState extends State<ProductItem> {
                                 Row(
                                   children: [
                                     Text(
-                                      ('\$${widget.product.price.toString()}'),
+                                      ('\$${product.price.toString()}'),
                                       style: kRatingTextStyle,
                                     ),
                                     SizedBox(
