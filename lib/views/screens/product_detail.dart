@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:product_gallery/models/product_model.dart';
 import '../widgets/detail_content.dart';
+import '../widgets/product_detail_bottom_sheet.dart';
 import '../widgets/product_slider.dart';
 
 class ProductDetail extends StatelessWidget {
@@ -34,6 +35,7 @@ class ProductDetail extends StatelessWidget {
           DetailContent(product: product),
         ],
       ),
+      bottomSheet: const ProductDetailBottomSheet(),
     );
   }
 }
