@@ -1,16 +1,41 @@
-# product_gallery
+# Product Gallery
+<p>A Product gallery app using flutter and Mock io API where products are shown in a staggered grid. Users can search individual products by their titles. The app also contains product details and a shop screen.
+ </p>
+ <br>
+<table>
+  <tr>
+    <td><img src="/assets/ss/1.jpg" width=270 ></td>
+    <td><img src="/assets/ss/2.jpg" width=270 ></td>
+    <td><img src="/assets/ss/3.jpg" width=270 ></td>
+  </tr>
+   <tr>
+   <td><img src="/assets/ss/4.jpg" width=270 ></td>
+    <td><img src="/assets/ss/5.jpg" width=270 ></td>
+  </tr>
+ </table>
 
-A new Flutter project.
+## Features
+```
+─ Products fetched from the server and showed in a staggered grid view
+─ Users can search individual products
+─ A dialog will appear on product click
+─ Product deatails screen contain detail information about the product
+─ Shop screen contain all products in a list
+```
 
-## Getting Started
+## Dependencies
+```
+ - http: ^0.13.4
+ - get: ^4.6.1
+ - flutter_staggered_grid_view: ^0.6.1
+ - cached_network_image: ^3.2.0
+ - carousel_slider: ^4.0.0
+```
 
-This project is a starting point for a Flutter application.
+## Project Environment:
+```
+Flutter 2.10.2 • channel stable
+Dart 2.16.1
+Visual Studio Code 1.66.0
+```
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
