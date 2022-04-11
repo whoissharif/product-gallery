@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:product_gallery/constants/string_constants.dart';
 import 'package:product_gallery/views/screens/explore_screen.dart';
+import 'package:product_gallery/views/screens/home_screen.dart';
 import 'package:product_gallery/views/screens/shop_screen.dart';
 
 class NavScreen extends StatefulWidget {
@@ -11,12 +12,10 @@ class NavScreen extends StatefulWidget {
 }
 
 class _NavScreenState extends State<NavScreen> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   static final List<Widget> _pages = <Widget>[
-    const Center(
-        child: Text(StringConstants.homeString,
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
+    HomeScreen(),
     ExploreScreen(),
     const Center(
         child: Text(StringConstants.addString,
